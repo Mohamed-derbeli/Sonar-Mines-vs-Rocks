@@ -18,7 +18,7 @@ from waitress import serve
 app = Flask(__name__)
 
 #Load the trained model. (Pickle file)
-model = pickle.load(open('/home/mohamed/Data-Science/Projects-data/Sonar-Mines-Rocks/models/model.pkl', 'rb'))
+model = pickle.load(open('models/model.pkl', 'rb'))
 # model = pickle.load(open('../Sonar-Mines-Rocks/models/model.pkl','rb'))
 
 #Define the route to be home.
