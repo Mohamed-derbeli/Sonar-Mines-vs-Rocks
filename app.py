@@ -18,8 +18,8 @@ from waitress import serve
 app = Flask(__name__)
 
 #Load the trained model. (Pickle file)
-# model = pickle.load(open('../Sonar-Mines-Rocks/Sonar_Mines_vs_Rocks.sav', 'rb'))
-model = pickle.load(open('../Sonar-Mines-Rocks/models/model.pkl','rb'))
+model = pickle.load(open('/home/mohamed/Data-Science/Projects-data/Sonar-Mines-Rocks/models/model.pkl', 'rb'))
+# model = pickle.load(open('../Sonar-Mines-Rocks/models/model.pkl','rb'))
 
 #Define the route to be home.
 #The decorator below links the relative route of the URL to the function it is decorating.
