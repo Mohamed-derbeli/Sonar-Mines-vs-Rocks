@@ -7,34 +7,56 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Mines Detection Using SONAR Data</title>
+    <style>
+    body {
+      background-image: url('sonar.png');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center;
+      background-size: cover;
+    }
+    </style>
+<!-- https://github.com/Mohamed-derbeli/Sonar-Mines-vs-Rocks/tree/main/templates/ -->
 
 </head>
 
-<body style="background: #000;">
- <div class="login">
-	<h1 style="color:Violet;">Mines Detection Using SONAR Data</h1>
+<!--<body  style="background: #000;">-->
+<body>
+<!--<p style="background-image: url('sonar.png');">-->
+        <style>
+      .bottom-three {
+         margin-bottom: 6cm;
+      }
+    </style>
 
+    <style>
+      .bottom-two {
+         margin-bottom: 1cm;
+      }
+    </style>
+    <p class="bottom-three">
+
+ <div class="login" align="center">
+	<h1 style="color:yellow;">Mines Detection Using SONAR Data</h1>
+
+     <p class="bottom-two">
+     <h2 style="color:yellow;">Features: </h2>
      <!-- Action is where the data is sent. In our case, predict page.
      If action is omitted, it assumed to be the current page -->
     <form action="{{ url_for('predict')}}"method="post">
-    	<input type="text" name="Angle 1" placeholder="Angle 1" required="required" /><br>
-        <input type="text" name="Angle 2" placeholder="Angle 2" required="required" /><br>
-        <input type="text" name="Angle 3" placeholder="Angle 3" required="required" /><br>
-        <input type="text" name="Angle 4" placeholder="Angle 4" required="required" /><br>
-        <input type="text" name="Angle 5" placeholder="Angle 5" required="required" /><br>
-        <input type="text" name="Angle 6" placeholder="Angle 6" required="required" /><br>
-        <input type="text" name="Angle 7" placeholder="Angle 7" required="required" /><br>
-        <input type="text" name="Angle 8" placeholder="Angle 8" required="required" /><br>
-        <input type="text" name="Angle 9" placeholder="Angle 9" required="required" /><br>
-        <input type="text" name="Angle 10" placeholder="Angle 10" required="required" /><p>
 
-        <button type="submit" class="btn btn-primary btn-block btn-large">Prediction: Mine/Rock</button></p>
+        <input type="text" name="Input"  placeholder="The input should be an array of 60 items separated by comas"     size="43"  required="required" /><p>
+
+        <p class="bottom-two">
+        <h2 style="color:yellow;">Prediction: </h2>
+        <button type="submit" class="btn btn-primary btn-block btn-large">Run the model </button></p>
+        <p class="bottom-two">
     </form>
 
    <br>
    <br>
-   <h4 style="color:Green;">
-   {{ prediction_text }} </h4>
+   <h3 style="color:Green;">
+   {{ prediction_text }} </h3>
 
  </div>
 
