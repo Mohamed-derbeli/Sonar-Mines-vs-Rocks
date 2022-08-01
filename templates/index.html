@@ -7,23 +7,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Mines Detection Using SONAR Data</title>
-    <style>
-    body {
-      background-image: url('https://github.com/Mohamed-derbeli/Sonar-Mines-vs-Rocks/blob/main/templates/sonar.png');
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      background-position: center;
-      background-size: cover;
-    }
-    </style>
+<!--    <style>-->
+<!--    body {-->
+<!--      background-image: url('sonar.jpg');-->
+<!--      background-repeat: no-repeat;-->
+<!--      background-attachment: fixed;-->
+<!--      background-position: center;-->
+<!--      background-size: cover;-->
+<!--    }-->
+<!--    </style>-->
 <!-- https://github.com/Mohamed-derbeli/Sonar-Mines-vs-Rocks/tree/main/templates/ -->
 
 </head>
 
-<!--<body  style="background: #000;">-->
-<body>
-<!--<p style="background-image: url('sonar.png');">-->
-        <style>
+<body  style="background: #000;">
+    <style>
       .bottom-three {
          margin-bottom: 6cm;
       }
@@ -35,30 +33,29 @@
       }
     </style>
     <p class="bottom-three">
+     <div class="login" align="center">
+        <h1 style="color:yellow;">Mines Detection Using SONAR Data</h1>
 
- <div class="login" align="center">
-	<h1 style="color:yellow;">Mines Detection Using SONAR Data</h1>
+         <p class="bottom-two">
+         <h2 style="color:yellow;">Features: </h2>
+         <!-- Action is where the data is sent. In our case, predict page.
+         If action is omitted, it assumed to be the current page -->
+        <form action="{{ url_for('predict')}}"method="post">
 
-     <p class="bottom-two">
-     <h2 style="color:yellow;">Features: </h2>
-     <!-- Action is where the data is sent. In our case, predict page.
-     If action is omitted, it assumed to be the current page -->
-    <form action="{{ url_for('predict')}}"method="post">
+            <input type="text" name="Input"  placeholder="The input should be an array of 60 items separated by comas"     size="43"  required="required" /><p>
 
-        <input type="text" name="Input"  placeholder="The input should be an array of 60 items separated by comas"     size="43"  required="required" /><p>
+            <p class="bottom-two">
+            <h2 style="color:yellow;">Prediction: </h2>
+            <button type="submit" class="btn btn-primary btn-block btn-large">Run the model </button></p>
+            <p class="bottom-two">
+        </form>
 
-        <p class="bottom-two">
-        <h2 style="color:yellow;">Prediction: </h2>
-        <button type="submit" class="btn btn-primary btn-block btn-large">Run the model </button></p>
-        <p class="bottom-two">
-    </form>
+       <br>
+       <br>
+       <h3 style="color:Violet;">
+       {{ prediction_text }} </h3>
 
-   <br>
-   <br>
-   <h3 style="color:Green;">
-   {{ prediction_text }} </h3>
-
- </div>
+     </div>
 
 
 </body>
