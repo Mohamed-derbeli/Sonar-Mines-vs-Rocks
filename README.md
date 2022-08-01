@@ -6,4 +6,4 @@ The application of this project is deployed to Heroku, it can be found in https:
 
 
 
-![Screenshot-15](https://user-images.githubusercontent.com/86875309/182231065-04a680f6-44d6-47d6-858a-54ec57e29ce0.png)
+![Screenshot-13](https://user-images.githubusercontent.com/86875309/182231730-6ab0a594-7214-4d86-a261-123e184c16b8.png)
