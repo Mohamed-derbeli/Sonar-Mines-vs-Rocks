@@ -1,6 +1,7 @@
-# Sonar_Mines_vs_Rocks
+<h1 align='center' style='color:purple'>Sonar - Mines vs Rocks</h1>
 
 
+### Deployment: 
 The application of this project is deployed to Heroku, it can be found in https://md-sonar-mines-vs-rocks.herokuapp.com
 
 
