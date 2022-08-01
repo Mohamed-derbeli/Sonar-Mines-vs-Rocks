@@ -11,14 +11,15 @@
 
 import numpy as np
 from flask import Flask, request, render_template
-import pickle
+import pickle5
 from waitress import serve
 
 #Create an app object using the Flask class.
 app = Flask(__name__)
 
 #Load the trained model. (Pickle file)
-model = pickle.load(open('models/model.pkl', 'rb'))
+model = pickle5.load(open('models/model.pkl', 'rb'))
+pca = pickle5.load(open('models/pca.pkl', 'rb'))
 # model = pickle.load(open('../Sonar-Mines-Rocks/models/model.pkl','rb'))
 
 #Define the route to be home.
@@ -41,9 +42,19 @@ def home():
 @app.route('/predict',methods=['POST'])
 def predict():
 
-    int_features = [float(x) for x in request.form.values()] #Convert string inputs to float.
+
+    text= request.form['Input']  #.values()
+    text=text.replace(" ", "")
+    text= text.split(",")
+    print(text)
+
+
+    # request.form.values()
+
+    int_features = [float(x) for x in text] #Convert string inputs to float.
     features = [np.array(int_features)]  #Convert to the form [[a, b]] for input to the model
-    prediction = model.predict(features)  # features Must be in the form [[a, b]]
+    pca_features= pca.transform(features)
+    prediction = model.predict(pca_features)  # features Must be in the form [[a, b]]
 
     output = round(prediction[0], 2)
     detect=" "
@@ -52,7 +63,7 @@ def predict():
     else:
         detect= "Rock"
 
-    return render_template('index.html', prediction_text='Detection is: {}'.format(detect))
+    return render_template('index.html', prediction_text='Detection: {}'.format(detect))
 
 #When the Python interpreter reads a source file, it first defines a few special variables.
 #For now, we care about the __name__ variable.
@@ -64,7 +75,7 @@ def predict():
 
 if __name__ == "__main__":
     # serve(app, host="0.0.0.0", port=8855)
-#    app.debug=True
+    app.debug=True
     app.run()
 
 
